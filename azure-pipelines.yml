@@ -20,3 +20,12 @@ steps:
     repository: $(imageName)
     command: build
     Dockerfile: app/Dockerfile
+
+jobs:  
+- deployment: VMDeploy
+  displayName: web
+  environment:
+    name:  BorealVMEnvLinux
+    resourceType: VirtualMachine
+    tags: web1
+  strategy:
