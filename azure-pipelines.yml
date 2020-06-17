@@ -13,8 +13,6 @@ pool:
 variables:
   imageName: 'pipelines-javascript-docker'
 
-jobs:
-- job: One
   steps:
   - task: Docker@2
     displayName: Build an image
@@ -22,12 +20,3 @@ jobs:
       repository: $(imageName)
       command: build
       Dockerfile: app/Dockerfile
-
-- job: Two  
-  - deployment: VMDeploy
-    displayName: web
-    environment:
-      name:  BorealVMEnvLinux
-      resourceType: VirtualMachine
-      tags: web1
-    strategy:
